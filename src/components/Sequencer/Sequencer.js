@@ -36,6 +36,13 @@ const colors = {
 };
 
 class Sequencer extends React.Component {
+  randomizeNotes(sequenceLength) {
+    const notesSequence = [...Array(sequenceLength).keys()].map(el =>
+      Math.random() > 0.3 ? false : true
+    );
+    return notesSequence
+  }
+
   render() {
     return (
       <div style={{ width: '950px' }}>
@@ -63,6 +70,8 @@ class Sequencer extends React.Component {
                 unsetClear={this.props.unsetClear}
                 currentBeat={this.props.currentBeat}
                 sequenceLength={this.props.sequenceLength}
+                randomizeNotes={this.randomizeNotes}
+                noteSequence={this.randomizeNotes(this.props.sequenceLength)}
               />
             </div>
           );

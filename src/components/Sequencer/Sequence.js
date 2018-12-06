@@ -18,10 +18,10 @@ const Led = styled.div`
 `;
 
 class Timeline extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      noteOn: []
+      noteOn: this.props.noteSequence
     };
   }
 
@@ -36,16 +36,6 @@ class Timeline extends React.Component {
       });
       this.props.unsetClear();
     }
-  }
-
-  componentDidMount() {
-    // const noteOn = [...Array(this.props.sequenceLength).keys()].fill(false);
-    const noteOn = [...Array(this.props.sequenceLength).keys()].map(
-      el => (Math.random() > 0.3 ? false : true)
-    );
-    this.setState({
-      noteOn
-    });
   }
 
   handleClick = index => {
