@@ -80,7 +80,7 @@ class Transport extends React.Component {
         <ButtonStyled onClick={() => this.props.clearSequences()}>clear</ButtonStyled>
         <BPMLabel>bpm</BPMLabel>
         <BPM defaultValue="40" onChange={this.props.changeBPM}/>
-        <PadsToggle onClick={this.props.togglePads}>controls</PadsToggle>
+        <PadsToggle onClick={this.props.togglePads}>{this.props.showPads ? 'hide ' : 'show '}controls</PadsToggle>
       </TransportContainer>
     );
   }

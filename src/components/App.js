@@ -273,7 +273,7 @@ class App extends Component {
           }}
         >
           <h1>nebulous_groove</h1>
-          <h3 style={{ color: '#990000' }}>random-beat-generator</h3>
+          <h3 style={{ color: '#990000', paddingLeft: '5px' }}>random-beat-generator</h3>
         </div>
         <Transport
           context={context}
@@ -285,6 +285,7 @@ class App extends Component {
           time={context.currentTime}
           beat={this.state.currentBeat}
           togglePads={this.togglePads}
+          showPads={this.state.showPads}
           changeSequenceLength={this.changeSequenceLength}
           style={{ marginBottom: '10px' }}
         />
