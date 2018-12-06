@@ -263,7 +263,18 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <h1>The Nebulous Groove Generator</h1>
+        <div
+          className="Header"
+          style={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            padding: '10px',
+            justifyContent: 'flex-start'
+          }}
+        >
+          <h1>nebulous_groove</h1>
+          <h3 style={{ color: '#990000' }}>random-beat-generator</h3>
+        </div>
         <Transport
           context={context}
           changeBPM={this.changeBPM}
