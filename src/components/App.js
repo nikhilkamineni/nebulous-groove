@@ -108,8 +108,8 @@ class App extends Component {
     currentBeat: 0,
     bpm: 40,
     sequenceLength: 16,
-    tracks: 8,
     showPads: true,
+    showSequencer: true,
     wasStopped: true,
     clear: false
   };
@@ -149,7 +149,12 @@ class App extends Component {
     }
   }
 
-  play() {
+  randomizeSequencer = async () => {
+    await this.setState({ showSequencer: false })
+    this.setState({ showSequencer: true })
+  }
+
+  play = () => {
     if (!this.state.isPlaying) {
       context.resume();
       const { bpm, sequenceLength } = this.state;
@@ -180,7 +185,7 @@ class App extends Component {
     }
   }
 
-  pause() {
+  pause = () => {
     this.setState({
       isPlaying: false
     });
@@ -188,7 +193,7 @@ class App extends Component {
     // context.suspend();
   }
 
-  stop() {
+  stop = () => {
     clearInterval(timer);
     this.setState({
       isPlaying: false,
@@ -278,10 +283,11 @@ class App extends Component {
         <Transport
           context={context}
           changeBPM={this.changeBPM}
-          play={() => this.play()}
-          pause={() => this.pause()}
-          stop={() => this.stop()}
+          play={this.play}
+          pause={this.pause}
+          stop={this.stop}
           clearSequences={this.clearSequences}
+          randomizeSequencer={this.randomizeSequencer}
           time={context.currentTime}
           beat={this.state.currentBeat}
           togglePads={this.togglePads}
@@ -306,15 +312,17 @@ class App extends Component {
             <Mixer mixerHandler={this.mixerHandler} />
           ) : null}
         </div>
-        <Sequencer
-          clear={this.state.clear}
-          context={context}
-          gains={gains}
-          unsetClear={this.unsetClear}
-          tracks={this.state.tracks}
-          currentBeat={this.state.currentBeat}
-          sequenceLength={this.state.sequenceLength}
-        />
+        {
+          this.state.showSequencer &&
+          <Sequencer
+            clear={this.state.clear}
+            context={context}
+            gains={gains}
+            unsetClear={this.unsetClear}
+            currentBeat={this.state.currentBeat}
+            sequenceLength={this.state.sequenceLength}
+          />
+        }
       </Container>
     );
   }

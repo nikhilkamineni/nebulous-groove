@@ -40,6 +40,7 @@ class Sequencer extends React.Component {
     const notesSequence = [...Array(sequenceLength).keys()].map(el =>
       Math.random() > 0.3 ? false : true
     );
+    // this.setState({ noteOn: [] })
     return notesSequence
   }
 

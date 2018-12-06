@@ -78,6 +78,7 @@ class Transport extends React.Component {
         <ButtonStyled onClick={this.props.pause}>pause</ButtonStyled>
         <ButtonStyled onClick={this.props.stop}>stop</ButtonStyled>
         <ButtonStyled onClick={() => this.props.clearSequences()}>clear</ButtonStyled>
+        <ButtonStyled onClick={this.props.randomizeSequencer}>randomize</ButtonStyled>
         <BPMLabel>bpm</BPMLabel>
         <BPM defaultValue="40" onChange={this.props.changeBPM}/>
         <PadsToggle onClick={this.props.togglePads}>{this.props.showPads ? 'hide ' : 'show '}controls</PadsToggle>
