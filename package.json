@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts && mv build dist"
+    "now-build": "react-scripts build && mv build dist"
   },
   "browserslist": [
     ">0.2%",
