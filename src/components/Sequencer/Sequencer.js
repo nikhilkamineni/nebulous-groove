@@ -39,7 +39,11 @@ class Sequencer extends React.Component {
   render() {
     return (
       <div style={{ width: '950px' }}>
-
+        <Timeline
+          currentBeat={this.props.currentBeat}
+          sequenceLength={this.props.sequenceLength}
+          style={{ width: '800px' }}
+        />
         {Object.keys(sounds).map((name, index) => {
           return (
             <div
@@ -63,11 +67,6 @@ class Sequencer extends React.Component {
             </div>
           );
         })}
-        <Timeline
-          currentBeat={this.props.currentBeat}
-          sequenceLength={this.props.sequenceLength}
-          style={{ width: '800px' }}
-        />
       </div>
     );
   }
